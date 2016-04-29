@@ -1,0 +1,1496 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ont: <http://purl.org/net/ns/ontology-annot#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix km-dev: <http://isi.edu/integration/karma/dev#> .
+
+_:node1aec68r36x1 a km-dev:R2RMLMapping ;
+	km-dev:sourceName "valid_organisation_assets.csv" ;
+	km-dev:modelPublicationTime "1458550631526"^^xsd:long ;
+	km-dev:modelVersion "1.7" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"description\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id\"}],[{\"columnName\":\"set_ids_split\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"offers_ids_alt\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id_type_uri\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"description\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id\"}],[{\"columnName\":\"alt_ids\"}],[{\"columnName\":\"entity_id2\"}],[{\"columnName\":\"set_ids_split\"},{\"columnName\":\"set_ids_fix\"}],[{\"columnName\":\"ts\"}],[{\"columnName\":\"offers_ids_alt\"},{\"columnName\":\"offer_ids_fix\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id_type_uri\"}],[{\"columnName\":\"entity_id\"}]]" ;
+	km-dev:hasModelLabel "valid_organisation_assets.csv" ;
+	km-dev:hasBaseURI "http://localhost:8080/source/" ;
+	km-dev:hasWorksheetHistory """[
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"source_ids\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"alt_ids\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"import json\\nimport urllib\\nreturn json.dumps(map(lambda x:{'source_id_type_uri':\\\"http://openlicensing.org/ns/hub/\\\"+urllib.quote_plus(x[0]),'source_id':urllib.quote_plus(x[1])},zip(getValue(\\\"source_id_types\\\").split(\\\"~\\\"),getValue(\\\"source_ids\\\").split(\\\"~\\\"))))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"true\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_ids\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"source_id_types\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"alt_ids\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"offer_ids\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"delimiter\",
+                \"value\": \"~\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColName\",
+                \"value\": \"offers_ids_alt\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newHNodeId\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SplitValuesCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"set_ids\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"delimiter\",
+                \"value\": \"~\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColName\",
+                \"value\": \"set_ids_split\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newHNodeId\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SplitValuesCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"offers_ids_alt\"},
+                    {\"columnName\": \"Values\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"offer_ids_fix\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"import urllib\\nreturn \\\"http://openlicensing.org/ns/id/\\\"+urllib.quote_plus(getValue(\\\"Values\\\").split(\\\"/\\\")[-1])\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"offers_ids_alt\\\"},{\\\"columnName\\\":\\\"Values\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"offers_ids_alt\\\"},{\\\"columnName\\\":\\\"offer_ids_fix\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"set_ids_split\"},
+                    {\"columnName\": \"Values\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"set_ids_fix\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"import urllib\\nreturn \\\"http://openlicensing.org/ns/id/\\\"+urllib.quote_plus(getValue(\\\"Values\\\").split(\\\"/\\\")[-1])\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"set_ids_split\\\"},{\\\"columnName\\\":\\\"Values\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"set_ids_split\\\"},{\\\"columnName\\\":\\\"set_ids_fix\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"source_ids\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"entity_id\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"import uuid\\nreturn \\\"http://openlicensing.org/ns/id/\\\"+str(uuid.uuid4()).replace('-','')\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"entity_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"source_ids\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"ts\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"import datetime\\nreturn datetime.datetime.utcnow().isoformat()+\\\"Z\\\"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"ts\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"entity_id\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"entity_id2\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return getValue(\\\"entity_id\\\")\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"entity_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"entity_id2\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"entity_id\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://openlicensing.org/ns/ol/1.1/Asset\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/Asset/Asset1 (add)\",
+                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
+                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"entity_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"entity_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"alt_ids\"},
+                    {\"columnName\": \"source_id_type_uri\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://openlicensing.org/ns/ol/1.1/IdType\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://openlicensing.org/ns/ol/1.1/IdType1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/IdType/IdType1 (add)\",
+                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/IdType1\",
+                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/IdType\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"alt_ids\\\"},{\\\"columnName\\\":\\\"source_id_type_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"alt_ids\\\"},{\\\"columnName\\\":\\\"source_id_type_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"alt_ids\"},
+                    {\"columnName\": \"source_id\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://openlicensing.org/ns/ol/1.1/value\",
+                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/Id/Id1\",
+                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/Id1\",
+                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/Id\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"alt_ids\\\"},{\\\"columnName\\\":\\\"source_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"alt_ids\\\"},{\\\"columnName\\\":\\\"source_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"offers_ids_alt\"},
+                    {\"columnName\": \"offer_ids_fix\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://openlicensing.org/ns/ol/1.1/Policy\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://openlicensing.org/ns/ol/1.1/Policy1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/Policy/Policy1 (add)\",
+                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/Policy1\",
+                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/Policy\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"offers_ids_alt\\\"},{\\\"columnName\\\":\\\"offer_ids_fix\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"offers_ids_alt\\\"},{\\\"columnName\\\":\\\"offer_ids_fix\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"set_ids_split\"},
+                    {\"columnName\": \"set_ids_fix\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://openlicensing.org/ns/ol/1.1/AssetSet\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://openlicensing.org/ns/ol/1.1/AssetSet1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/AssetSet/AssetSet1 (add)\",
+                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/AssetSet1\",
+                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/AssetSet\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"set_ids_split\\\"},{\\\"columnName\\\":\\\"set_ids_fix\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"set_ids_split\\\"},{\\\"columnName\\\":\\\"set_ids_fix\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"ts\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://purl.org/dc/terms/modified\",
+                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/Asset/Asset1\",
+                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
+                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:dateTime\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"ts\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"ts\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"description\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://purl.org/dc/terms/description\",
+                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/Asset/Asset1\",
+                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
+                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"description\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"description\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"entity_id2\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://www.w3.org/ns/odrl/2/Offer\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://www.w3.org/ns/odrl/2/Offer1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"http://www.w3.org/ns/odrl/2/Offer/Offer1 (add)\",
+                    \"DomainId\": \"http://www.w3.org/ns/odrl/2/Offer1\",
+                    \"DomainUri\": \"http://www.w3.org/ns/odrl/2/Offer\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"entity_id2\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"entity_id2\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP7:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://openlicensing.org/ns/ol/1.1/IdType\",
+                    \"edgeId\": \"http://openlicensing.org/ns/ol/1.1/id_type\",
+                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/IdType1\",
+                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/Id1\",
+                    \"edgeSourceUri\": \"http://openlicensing.org/ns/ol/1.1/Id\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP7:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://openlicensing.org/ns/ol/1.1/Id\",
+                    \"edgeId\": \"http://openlicensing.org/ns/ol/1.1/alsoIdentifiedBy\",
+                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/Id1\",
+                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
+                    \"edgeSourceUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP7:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\",
+                    \"edgeId\": \"http://openlicensing.org/ns/ol/1.1/hasElement\",
+                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
+                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/AssetSet1\",
+                    \"edgeSourceUri\": \"http://openlicensing.org/ns/ol/1.1/AssetSet\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP7:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\",
+                    \"edgeId\": \"http://www.w3.org/ns/odrl/2/target\",
+                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
+                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/Policy1\",
+                    \"edgeSourceUri\": \"http://openlicensing.org/ns/ol/1.1/Policy\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [{
+                    \"edgeId\": \"http://www.w3.org/ns/odrl/2/target\",
+                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
+                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/Policy1\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP1:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP1:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\",
+                    \"edgeId\": \"http://www.w3.org/ns/odrl/2/target\",
+                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
+                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/Policy1\",
+                    \"edgeSourceUri\": \"http://openlicensing.org/ns/ol/1.1/Policy\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    }
+]""" .
+
+km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 a rr:TriplesMap .
+
+_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 .
+
+km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x2 rr:tableName "valid_organisation_assets.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x2 .
+
+km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 rr:logicalTable _:node1aec68r36x2 ;
+	rr:subjectMap _:node1aec68r36x3 .
+
+_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x3 .
+
+_:node1aec68r36x3 km-dev:isPartOfMapping _:node1aec68r36x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://openlicensing.org/ns/ol/1.1/Asset1" ;
+	rr:class <http://openlicensing.org/ns/ol/1.1/Asset> ;
+	rr:template "{entity_id}" .
+
+km-dev:PredicateObjectMap_017b5bcb-cd58-4e85-a27e-2b267cfeb341 rr:predicate <http://openlicensing.org/ns/ol/1.1/alsoIdentifiedBy> .
+
+km-dev:RefObjectMap_0b87ef2d-4cc1-4636-bf24-d96abe4683ae a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasObjectMap km-dev:RefObjectMap_0b87ef2d-4cc1-4636-bf24-d96abe4683ae .
+
+km-dev:PredicateObjectMap_017b5bcb-cd58-4e85-a27e-2b267cfeb341 rr:objectMap km-dev:RefObjectMap_0b87ef2d-4cc1-4636-bf24-d96abe4683ae .
+
+km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 rr:predicateObjectMap km-dev:PredicateObjectMap_017b5bcb-cd58-4e85-a27e-2b267cfeb341 .
+
+km-dev:PredicateObjectMap_017b5bcb-cd58-4e85-a27e-2b267cfeb341 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_017b5bcb-cd58-4e85-a27e-2b267cfeb341 .
+
+km-dev:PredicateObjectMap_db71c867-5f8b-4108-bed2-6e780da90697 rr:predicate dcterms:description .
+
+_:node1aec68r36x4 rr:column "description" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasObjectMap _:node1aec68r36x4 .
+
+km-dev:PredicateObjectMap_db71c867-5f8b-4108-bed2-6e780da90697 rr:objectMap _:node1aec68r36x4 .
+
+km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 rr:predicateObjectMap km-dev:PredicateObjectMap_db71c867-5f8b-4108-bed2-6e780da90697 .
+
+km-dev:PredicateObjectMap_db71c867-5f8b-4108-bed2-6e780da90697 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_db71c867-5f8b-4108-bed2-6e780da90697 .
+
+km-dev:PredicateObjectMap_1fc63f3f-a9b2-4154-b1ea-59cfd2f8defd rr:predicate dcterms:modified .
+
+_:node1aec68r36x5 rr:column "ts" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#dateTime" ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasObjectMap _:node1aec68r36x5 .
+
+km-dev:PredicateObjectMap_1fc63f3f-a9b2-4154-b1ea-59cfd2f8defd rr:objectMap _:node1aec68r36x5 .
+
+km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 rr:predicateObjectMap km-dev:PredicateObjectMap_1fc63f3f-a9b2-4154-b1ea-59cfd2f8defd .
+
+km-dev:PredicateObjectMap_1fc63f3f-a9b2-4154-b1ea-59cfd2f8defd a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1fc63f3f-a9b2-4154-b1ea-59cfd2f8defd .
+
+km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 a rr:TriplesMap .
+
+_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 .
+
+km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x6 rr:tableName "valid_organisation_assets.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x6 .
+
+km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 rr:logicalTable _:node1aec68r36x6 ;
+	rr:subjectMap _:node1aec68r36x7 .
+
+_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x7 .
+
+_:node1aec68r36x7 km-dev:isPartOfMapping _:node1aec68r36x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://openlicensing.org/ns/ol/1.1/Id1" ;
+	rr:class <http://openlicensing.org/ns/ol/1.1/Id> ;
+	rr:termType rr:BlankNode ;
+	km-dev:namePrefix "Id1" .
+
+km-dev:PredicateObjectMap_c7b32e29-93d4-49d7-9905-aa0f54ab2630 rr:predicate <http://openlicensing.org/ns/ol/1.1/id_type> .
+
+km-dev:RefObjectMap_6e703aaf-8ac9-4808-b249-9a5db18c8b07 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_19f020a2-90cd-48e8-bf90-8fb53bd53a1c ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasObjectMap km-dev:RefObjectMap_6e703aaf-8ac9-4808-b249-9a5db18c8b07 .
+
+km-dev:PredicateObjectMap_c7b32e29-93d4-49d7-9905-aa0f54ab2630 rr:objectMap km-dev:RefObjectMap_6e703aaf-8ac9-4808-b249-9a5db18c8b07 .
+
+km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 rr:predicateObjectMap km-dev:PredicateObjectMap_c7b32e29-93d4-49d7-9905-aa0f54ab2630 .
+
+km-dev:PredicateObjectMap_c7b32e29-93d4-49d7-9905-aa0f54ab2630 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c7b32e29-93d4-49d7-9905-aa0f54ab2630 .
+
+km-dev:PredicateObjectMap_153cc66f-dde1-468b-94c1-375a942651ce rr:predicate <http://openlicensing.org/ns/ol/1.1/value> .
+
+_:node1aec68r36x8 rr:column "[\"alt_ids\",\"source_id\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasObjectMap _:node1aec68r36x8 .
+
+km-dev:PredicateObjectMap_153cc66f-dde1-468b-94c1-375a942651ce rr:objectMap _:node1aec68r36x8 .
+
+km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 rr:predicateObjectMap km-dev:PredicateObjectMap_153cc66f-dde1-468b-94c1-375a942651ce .
+
+km-dev:PredicateObjectMap_153cc66f-dde1-468b-94c1-375a942651ce a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_153cc66f-dde1-468b-94c1-375a942651ce .
+
+km-dev:TriplesMap_84b93ad7-ec47-4b9e-ab98-a103eb34f669 a rr:TriplesMap .
+
+_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_84b93ad7-ec47-4b9e-ab98-a103eb34f669 .
+
+km-dev:TriplesMap_84b93ad7-ec47-4b9e-ab98-a103eb34f669 km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x9 rr:tableName "valid_organisation_assets.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x9 .
+
+km-dev:TriplesMap_84b93ad7-ec47-4b9e-ab98-a103eb34f669 rr:logicalTable _:node1aec68r36x9 ;
+	rr:subjectMap _:node1aec68r36x10 .
+
+_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x10 .
+
+_:node1aec68r36x10 km-dev:isPartOfMapping _:node1aec68r36x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://openlicensing.org/ns/ol/1.1/AssetSet1" ;
+	rr:class <http://openlicensing.org/ns/ol/1.1/AssetSet> ;
+	rr:template "{[\"set_ids_split\",\"set_ids_fix\"]}" ;
+	a km-dev:steinerTreeRootNode .
+
+km-dev:PredicateObjectMap_b9138018-6468-4f65-b600-cf7994115ff3 rr:predicate <http://openlicensing.org/ns/ol/1.1/hasElement> .
+
+km-dev:RefObjectMap_5c02a07c-1770-455d-9454-69e7d7a7376e a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasObjectMap km-dev:RefObjectMap_5c02a07c-1770-455d-9454-69e7d7a7376e .
+
+km-dev:PredicateObjectMap_b9138018-6468-4f65-b600-cf7994115ff3 rr:objectMap km-dev:RefObjectMap_5c02a07c-1770-455d-9454-69e7d7a7376e .
+
+km-dev:TriplesMap_84b93ad7-ec47-4b9e-ab98-a103eb34f669 rr:predicateObjectMap km-dev:PredicateObjectMap_b9138018-6468-4f65-b600-cf7994115ff3 .
+
+km-dev:PredicateObjectMap_b9138018-6468-4f65-b600-cf7994115ff3 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b9138018-6468-4f65-b600-cf7994115ff3 .
+
+km-dev:TriplesMap_19f020a2-90cd-48e8-bf90-8fb53bd53a1c a rr:TriplesMap .
+
+_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_19f020a2-90cd-48e8-bf90-8fb53bd53a1c .
+
+km-dev:TriplesMap_19f020a2-90cd-48e8-bf90-8fb53bd53a1c km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x11 rr:tableName "valid_organisation_assets.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x11 .
+
+km-dev:TriplesMap_19f020a2-90cd-48e8-bf90-8fb53bd53a1c rr:logicalTable _:node1aec68r36x11 ;
+	rr:subjectMap _:node1aec68r36x12 .
+
+_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x12 .
+
+_:node1aec68r36x12 km-dev:isPartOfMapping _:node1aec68r36x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://openlicensing.org/ns/ol/1.1/IdType1" ;
+	rr:class <http://openlicensing.org/ns/ol/1.1/IdType> ;
+	rr:template "{[\"alt_ids\",\"source_id_type_uri\"]}" .
+
+km-dev:TriplesMap_936adf1b-b45d-4e9e-a96a-19cc484b507a a rr:TriplesMap .
+
+_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_936adf1b-b45d-4e9e-a96a-19cc484b507a .
+
+km-dev:TriplesMap_936adf1b-b45d-4e9e-a96a-19cc484b507a km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x13 rr:tableName "valid_organisation_assets.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x13 .
+
+km-dev:TriplesMap_936adf1b-b45d-4e9e-a96a-19cc484b507a rr:logicalTable _:node1aec68r36x13 ;
+	rr:subjectMap _:node1aec68r36x14 .
+
+_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x14 .
+
+_:node1aec68r36x14 km-dev:isPartOfMapping _:node1aec68r36x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://openlicensing.org/ns/ol/1.1/Policy1" ;
+	rr:class <http://openlicensing.org/ns/ol/1.1/Policy> ;
+	rr:template "{[\"offers_ids_alt\",\"offer_ids_fix\"]}" .
+
+km-dev:PredicateObjectMap_ae016479-8b6a-4bfd-9c59-bc1b51c88008 rr:predicate <http://www.w3.org/ns/odrl/2/target> .
+
+km-dev:RefObjectMap_c1974a00-713f-4227-a92f-a4f5380d2fdc a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasObjectMap km-dev:RefObjectMap_c1974a00-713f-4227-a92f-a4f5380d2fdc .
+
+km-dev:PredicateObjectMap_ae016479-8b6a-4bfd-9c59-bc1b51c88008 rr:objectMap km-dev:RefObjectMap_c1974a00-713f-4227-a92f-a4f5380d2fdc .
+
+km-dev:TriplesMap_936adf1b-b45d-4e9e-a96a-19cc484b507a rr:predicateObjectMap km-dev:PredicateObjectMap_ae016479-8b6a-4bfd-9c59-bc1b51c88008 .
+
+km-dev:PredicateObjectMap_ae016479-8b6a-4bfd-9c59-bc1b51c88008 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ae016479-8b6a-4bfd-9c59-bc1b51c88008 .
+
+km-dev:TriplesMap_57df7e63-a73f-4ad9-b1e6-370f6dec8712 a rr:TriplesMap .
+
+_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_57df7e63-a73f-4ad9-b1e6-370f6dec8712 .
+
+km-dev:TriplesMap_57df7e63-a73f-4ad9-b1e6-370f6dec8712 km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x15 rr:tableName "valid_organisation_assets.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1aec68r36x1 .
+
+_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x15 .
+
+km-dev:TriplesMap_57df7e63-a73f-4ad9-b1e6-370f6dec8712 rr:logicalTable _:node1aec68r36x15 ;
+	rr:subjectMap _:node1aec68r36x16 .
+
+_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x16 .
+
+_:node1aec68r36x16 km-dev:isPartOfMapping _:node1aec68r36x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://www.w3.org/ns/odrl/2/Offer1" ;
+	rr:class <http://www.w3.org/ns/odrl/2/Offer> ;
+	rr:template "{entity_id}" .
