@@ -1,6 +1,6 @@
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix skos: <http://www.w3c.org/2008/skos/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -15,12 +15,12 @@
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix km-dev: <http://isi.edu/integration/karma/dev#> .
 
-_:node1aec68r36x1 a km-dev:R2RMLMapping ;
+_:node1ags4uv0gx1 a km-dev:R2RMLMapping ;
 	km-dev:sourceName "valid_organisation_assets.csv" ;
-	km-dev:modelPublicationTime "1458550631526"^^xsd:long ;
+	km-dev:modelPublicationTime "1461233613843"^^xsd:long ;
 	km-dev:modelVersion "1.7" ;
-	km-dev:hasInputColumns "[[{\"columnName\":\"description\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id\"}],[{\"columnName\":\"set_ids_split\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"offers_ids_alt\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id_type_uri\"}]]" ;
-	km-dev:hasOutputColumns "[[{\"columnName\":\"description\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id\"}],[{\"columnName\":\"alt_ids\"}],[{\"columnName\":\"entity_id2\"}],[{\"columnName\":\"set_ids_split\"},{\"columnName\":\"set_ids_fix\"}],[{\"columnName\":\"ts\"}],[{\"columnName\":\"offers_ids_alt\"},{\"columnName\":\"offer_ids_fix\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id_type_uri\"}],[{\"columnName\":\"entity_id\"}]]" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"offers_ids_alt\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id_type_uri\"}],[{\"columnName\":\"set_ids_split\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"description\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"alt_ids\"}],[{\"columnName\":\"offers_ids_alt\"},{\"columnName\":\"offer_ids_fix\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id_type_uri\"}],[{\"columnName\":\"ts\"}],[{\"columnName\":\"entity_id2\"}],[{\"columnName\":\"description\"}],[{\"columnName\":\"set_ids_split\"},{\"columnName\":\"set_ids_fix\"}],[{\"columnName\":\"alt_ids\"},{\"columnName\":\"source_id\"}],[{\"columnName\":\"entity_id\"}]]" ;
 	km-dev:hasModelLabel "valid_organisation_assets.csv" ;
 	km-dev:hasBaseURI "http://localhost:8080/source/" ;
 	km-dev:hasWorksheetHistory """[
@@ -50,7 +50,7 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"transformationCode\",
-                \"value\": \"import json\\nimport urllib\\nreturn json.dumps(map(lambda x:{'source_id_type_uri':\\\"http://openlicensing.org/ns/hub/\\\"+urllib.quote_plus(x[0]),'source_id':urllib.quote_plus(x[1])},zip(getValue(\\\"source_id_types\\\").split(\\\"~\\\"),getValue(\\\"source_ids\\\").split(\\\"~\\\"))))\",
+                \"value\": \"import json\\nimport urllib\\nreturn json.dumps(map(lambda x:{'source_id_type_uri':\\\"http://openpermissions.org/ns/hub/\\\"+urllib.quote_plus(x[0]),'source_id':urllib.quote_plus(x[1])},zip(getValue(\\\"source_id_types\\\").split(\\\"~\\\"),getValue(\\\"source_ids\\\").split(\\\"~\\\"))))\",
                 \"type\": \"other\"
             },
             {
@@ -65,7 +65,7 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"inputColumns\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_ids\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"source_id_types\\\"}]}]\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_id_types\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"source_ids\\\"}]}]\",
                 \"type\": \"hNodeIdList\"
             },
             {
@@ -199,7 +199,7 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"transformationCode\",
-                \"value\": \"import urllib\\nreturn \\\"http://openlicensing.org/ns/id/\\\"+urllib.quote_plus(getValue(\\\"Values\\\").split(\\\"/\\\")[-1])\",
+                \"value\": \"import urllib\\nreturn \\\"http://openpermissions.org/ns/id/\\\"+urllib.quote_plus(getValue(\\\"Values\\\").split(\\\"/\\\")[-1])\",
                 \"type\": \"other\"
             },
             {
@@ -254,7 +254,7 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"transformationCode\",
-                \"value\": \"import urllib\\nreturn \\\"http://openlicensing.org/ns/id/\\\"+urllib.quote_plus(getValue(\\\"Values\\\").split(\\\"/\\\")[-1])\",
+                \"value\": \"import urllib\\nreturn \\\"http://openpermissions.org/ns/id/\\\"+urllib.quote_plus(getValue(\\\"Values\\\").split(\\\"/\\\")[-1])\",
                 \"type\": \"other\"
             },
             {
@@ -306,7 +306,7 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"transformationCode\",
-                \"value\": \"import uuid\\nreturn \\\"http://openlicensing.org/ns/id/\\\"+str(uuid.uuid4()).replace('-','')\",
+                \"value\": \"import uuid\\nreturn \\\"http://openpermissions.org/ns/id/\\\"+str(uuid.uuid4()).replace('-','')\",
                 \"type\": \"other\"
             },
             {
@@ -462,12 +462,12 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"value\": \"http://openlicensing.org/ns/ol/1.1/Asset\",
+                \"value\": \"http://openpermissions.org/ns/op/1.1/Asset\",
                 \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"value\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
+                \"value\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
                 \"type\": \"other\"
             },
             {
@@ -475,9 +475,9 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
                 \"value\": [{
                     \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/Asset/Asset1 (add)\",
-                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
-                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\"
+                    \"DomainLabel\": \"http://openpermissions.org/ns/op/1.1/Asset/Asset1 (add)\",
+                    \"DomainId\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
+                    \"DomainUri\": \"http://openpermissions.org/ns/op/1.1/Asset\"
                 }],
                 \"type\": \"other\"
             },
@@ -533,12 +533,12 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"value\": \"http://openlicensing.org/ns/ol/1.1/IdType\",
+                \"value\": \"http://openpermissions.org/ns/op/1.1/IdType\",
                 \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"value\": \"http://openlicensing.org/ns/ol/1.1/IdType1\",
+                \"value\": \"http://openpermissions.org/ns/op/1.1/IdType1\",
                 \"type\": \"other\"
             },
             {
@@ -546,9 +546,9 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
                 \"value\": [{
                     \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/IdType/IdType1 (add)\",
-                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/IdType1\",
-                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/IdType\"
+                    \"DomainLabel\": \"http://openpermissions.org/ns/op/1.1/IdType/IdType1 (add)\",
+                    \"DomainId\": \"http://openpermissions.org/ns/op/1.1/IdType1\",
+                    \"DomainUri\": \"http://openpermissions.org/ns/op/1.1/IdType\"
                 }],
                 \"type\": \"other\"
             },
@@ -601,10 +601,10 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
                     \"isPrimary\": true,
-                    \"FullType\": \"http://openlicensing.org/ns/ol/1.1/value\",
-                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/Id/Id1\",
-                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/Id1\",
-                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/Id\"
+                    \"FullType\": \"http://openpermissions.org/ns/op/1.1/value\",
+                    \"DomainLabel\": \"http://openpermissions.org/ns/op/1.1/Id/Id1\",
+                    \"DomainId\": \"http://openpermissions.org/ns/op/1.1/Id1\",
+                    \"DomainUri\": \"http://openpermissions.org/ns/op/1.1/Id\"
                 }],
                 \"type\": \"other\"
             },
@@ -660,12 +660,12 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"value\": \"http://openlicensing.org/ns/ol/1.1/Policy\",
+                \"value\": \"http://openpermissions.org/ns/op/1.1/Policy\",
                 \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"value\": \"http://openlicensing.org/ns/ol/1.1/Policy1\",
+                \"value\": \"http://openpermissions.org/ns/op/1.1/Policy1\",
                 \"type\": \"other\"
             },
             {
@@ -673,9 +673,9 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
                 \"value\": [{
                     \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/Policy/Policy1 (add)\",
-                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/Policy1\",
-                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/Policy\"
+                    \"DomainLabel\": \"http://openpermissions.org/ns/op/1.1/Policy/Policy1 (add)\",
+                    \"DomainId\": \"http://openpermissions.org/ns/op/1.1/Policy1\",
+                    \"DomainUri\": \"http://openpermissions.org/ns/op/1.1/Policy\"
                 }],
                 \"type\": \"other\"
             },
@@ -731,12 +731,12 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"value\": \"http://openlicensing.org/ns/ol/1.1/AssetSet\",
+                \"value\": \"http://openpermissions.org/ns/op/1.1/AssetSet\",
                 \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"value\": \"http://openlicensing.org/ns/ol/1.1/AssetSet1\",
+                \"value\": \"http://openpermissions.org/ns/op/1.1/AssetSet1\",
                 \"type\": \"other\"
             },
             {
@@ -744,9 +744,9 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
                 \"value\": [{
                     \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/AssetSet/AssetSet1 (add)\",
-                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/AssetSet1\",
-                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/AssetSet\"
+                    \"DomainLabel\": \"http://openpermissions.org/ns/op/1.1/AssetSet/AssetSet1 (add)\",
+                    \"DomainId\": \"http://openpermissions.org/ns/op/1.1/AssetSet1\",
+                    \"DomainUri\": \"http://openpermissions.org/ns/op/1.1/AssetSet\"
                 }],
                 \"type\": \"other\"
             },
@@ -797,9 +797,9 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
                 \"value\": [{
                     \"isPrimary\": true,
                     \"FullType\": \"http://purl.org/dc/terms/modified\",
-                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/Asset/Asset1\",
-                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
-                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\"
+                    \"DomainLabel\": \"http://openpermissions.org/ns/op/1.1/Asset/Asset1\",
+                    \"DomainId\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
+                    \"DomainUri\": \"http://openpermissions.org/ns/op/1.1/Asset\"
                 }],
                 \"type\": \"other\"
             },
@@ -850,9 +850,9 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
                 \"value\": [{
                     \"isPrimary\": true,
                     \"FullType\": \"http://purl.org/dc/terms/description\",
-                    \"DomainLabel\": \"http://openlicensing.org/ns/ol/1.1/Asset/Asset1\",
-                    \"DomainId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
-                    \"DomainUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\"
+                    \"DomainLabel\": \"http://openpermissions.org/ns/op/1.1/Asset/Asset1\",
+                    \"DomainId\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
+                    \"DomainUri\": \"http://openpermissions.org/ns/op/1.1/Asset\"
                 }],
                 \"type\": \"other\"
             },
@@ -880,74 +880,6 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
         \"commandName\": \"SetSemanticTypeCommand\"
     },
     {
-        \"tags\": [\"SemanticType\"],
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"hNodeId\",
-                \"value\": [{\"columnName\": \"entity_id2\"}],
-                \"type\": \"hNodeId\"
-            },
-            {
-                \"name\": \"worksheetId\",
-                \"value\": \"W\",
-                \"type\": \"worksheetId\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"value\": \"DEFAULT_TEST\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"metaPropertyName\",
-                \"value\": \"isUriOfClass\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"metaPropertyUri\",
-                \"value\": \"http://www.w3.org/ns/odrl/2/Offer\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"metaPropertyId\",
-                \"value\": \"http://www.w3.org/ns/odrl/2/Offer1\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"SemanticTypesArray\",
-                \"value\": [{
-                    \"isPrimary\": true,
-                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"http://www.w3.org/ns/odrl/2/Offer/Offer1 (add)\",
-                    \"DomainId\": \"http://www.w3.org/ns/odrl/2/Offer1\",
-                    \"DomainUri\": \"http://www.w3.org/ns/odrl/2/Offer\"
-                }],
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"trainAndShowUpdates\",
-                \"value\": true,
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"rdfLiteralType\",
-                \"value\": \"\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"entity_id2\\\"}]}]\",
-                \"type\": \"hNodeIdList\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"entity_id2\\\"}]}]\",
-                \"type\": \"hNodeIdList\"
-            }
-        ],
-        \"commandName\": \"SetMetaPropertyCommand\"
-    },
-    {
         \"tags\": [\"Modeling\"],
         \"model\": \"new\",
         \"inputParameters\": [
@@ -974,11 +906,11 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"newEdges\",
                 \"value\": [{
-                    \"edgeTargetUri\": \"http://openlicensing.org/ns/ol/1.1/IdType\",
-                    \"edgeId\": \"http://openlicensing.org/ns/ol/1.1/id_type\",
-                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/IdType1\",
-                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/Id1\",
-                    \"edgeSourceUri\": \"http://openlicensing.org/ns/ol/1.1/Id\"
+                    \"edgeTargetUri\": \"http://openpermissions.org/ns/op/1.1/IdType\",
+                    \"edgeId\": \"http://openpermissions.org/ns/op/1.1/id_type\",
+                    \"edgeTargetId\": \"http://openpermissions.org/ns/op/1.1/IdType1\",
+                    \"edgeSourceId\": \"http://openpermissions.org/ns/op/1.1/Id1\",
+                    \"edgeSourceUri\": \"http://openpermissions.org/ns/op/1.1/Id\"
                 }],
                 \"type\": \"other\"
             },
@@ -1022,11 +954,11 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"newEdges\",
                 \"value\": [{
-                    \"edgeTargetUri\": \"http://openlicensing.org/ns/ol/1.1/Id\",
-                    \"edgeId\": \"http://openlicensing.org/ns/ol/1.1/alsoIdentifiedBy\",
-                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/Id1\",
-                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
-                    \"edgeSourceUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\"
+                    \"edgeTargetUri\": \"http://openpermissions.org/ns/op/1.1/Id\",
+                    \"edgeId\": \"http://openpermissions.org/ns/op/1.1/alsoIdentifiedBy\",
+                    \"edgeTargetId\": \"http://openpermissions.org/ns/op/1.1/Id1\",
+                    \"edgeSourceId\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
+                    \"edgeSourceUri\": \"http://openpermissions.org/ns/op/1.1/Asset\"
                 }],
                 \"type\": \"other\"
             },
@@ -1070,11 +1002,11 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"newEdges\",
                 \"value\": [{
-                    \"edgeTargetUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\",
-                    \"edgeId\": \"http://openlicensing.org/ns/ol/1.1/hasElement\",
-                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
-                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/AssetSet1\",
-                    \"edgeSourceUri\": \"http://openlicensing.org/ns/ol/1.1/AssetSet\"
+                    \"edgeTargetUri\": \"http://openpermissions.org/ns/op/1.1/Asset\",
+                    \"edgeId\": \"http://openpermissions.org/ns/op/1.1/hasElement\",
+                    \"edgeTargetId\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
+                    \"edgeSourceId\": \"http://openpermissions.org/ns/op/1.1/AssetSet1\",
+                    \"edgeSourceUri\": \"http://openpermissions.org/ns/op/1.1/AssetSet\"
                 }],
                 \"type\": \"other\"
             },
@@ -1118,11 +1050,11 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"newEdges\",
                 \"value\": [{
-                    \"edgeTargetUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\",
+                    \"edgeTargetUri\": \"http://openpermissions.org/ns/op/1.1/Asset\",
                     \"edgeId\": \"http://www.w3.org/ns/odrl/2/target\",
-                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
-                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/Policy1\",
-                    \"edgeSourceUri\": \"http://openlicensing.org/ns/ol/1.1/Policy\"
+                    \"edgeTargetId\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
+                    \"edgeSourceId\": \"http://openpermissions.org/ns/op/1.1/Policy1\",
+                    \"edgeSourceUri\": \"http://openpermissions.org/ns/op/1.1/Policy\"
                 }],
                 \"type\": \"other\"
             },
@@ -1157,8 +1089,8 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
                 \"name\": \"initialEdges\",
                 \"value\": [{
                     \"edgeId\": \"http://www.w3.org/ns/odrl/2/target\",
-                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
-                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/Policy1\"
+                    \"edgeTargetId\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
+                    \"edgeSourceId\": \"http://openpermissions.org/ns/op/1.1/Policy1\"
                 }],
                 \"type\": \"other\"
             },
@@ -1212,11 +1144,11 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"newEdges\",
                 \"value\": [{
-                    \"edgeTargetUri\": \"http://openlicensing.org/ns/ol/1.1/Asset\",
+                    \"edgeTargetUri\": \"http://openpermissions.org/ns/op/1.1/Asset\",
                     \"edgeId\": \"http://www.w3.org/ns/odrl/2/target\",
-                    \"edgeTargetId\": \"http://openlicensing.org/ns/ol/1.1/Asset1\",
-                    \"edgeSourceId\": \"http://openlicensing.org/ns/ol/1.1/Policy1\",
-                    \"edgeSourceUri\": \"http://openlicensing.org/ns/ol/1.1/Policy\"
+                    \"edgeTargetId\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
+                    \"edgeSourceId\": \"http://openpermissions.org/ns/op/1.1/Policy1\",
+                    \"edgeSourceUri\": \"http://openpermissions.org/ns/op/1.1/Policy\"
                 }],
                 \"type\": \"other\"
             },
@@ -1235,262 +1167,239 @@ _:node1aec68r36x1 a km-dev:R2RMLMapping ;
     }
 ]""" .
 
-km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 a rr:TriplesMap .
+km-dev:TriplesMap_d10e9764-144e-4ce2-b840-1a6595d5708f a rr:TriplesMap .
 
-_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 .
+_:node1ags4uv0gx1 km-dev:hasTriplesMap km-dev:TriplesMap_d10e9764-144e-4ce2-b840-1a6595d5708f .
 
-km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 km-dev:isPartOfMapping _:node1aec68r36x1 .
+km-dev:TriplesMap_d10e9764-144e-4ce2-b840-1a6595d5708f km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x2 rr:tableName "valid_organisation_assets.csv" ;
+_:node1ags4uv0gx2 rr:tableName "valid_organisation_assets.csv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x2 .
+_:node1ags4uv0gx1 km-dev:hasLogicalTable _:node1ags4uv0gx2 .
 
-km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 rr:logicalTable _:node1aec68r36x2 ;
-	rr:subjectMap _:node1aec68r36x3 .
+km-dev:TriplesMap_d10e9764-144e-4ce2-b840-1a6595d5708f rr:logicalTable _:node1ags4uv0gx2 ;
+	rr:subjectMap _:node1ags4uv0gx3 .
 
-_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x3 .
+_:node1ags4uv0gx1 km-dev:hasSubjectMap _:node1ags4uv0gx3 .
 
-_:node1aec68r36x3 km-dev:isPartOfMapping _:node1aec68r36x1 ;
+_:node1ags4uv0gx3 km-dev:isPartOfMapping _:node1ags4uv0gx1 ;
 	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://openlicensing.org/ns/ol/1.1/Asset1" ;
-	rr:class <http://openlicensing.org/ns/ol/1.1/Asset> ;
+	km-dev:alignmentNodeId "http://openpermissions.org/ns/op/1.1/Policy1" ;
+	rr:class <http://openpermissions.org/ns/op/1.1/Policy> ;
+	rr:template "{[\"offers_ids_alt\",\"offer_ids_fix\"]}" .
+
+km-dev:PredicateObjectMap_beb44ab9-349c-4643-aaf9-b8a529312da1 rr:predicate <http://www.w3.org/ns/odrl/2/target> .
+
+km-dev:RefObjectMap_6fac27c4-1969-4de9-b6e7-92acecbcc204 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_d8845fa7-f6aa-4ef9-8ddf-57d76f692bc8 ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
+
+_:node1ags4uv0gx1 km-dev:hasObjectMap km-dev:RefObjectMap_6fac27c4-1969-4de9-b6e7-92acecbcc204 .
+
+km-dev:PredicateObjectMap_beb44ab9-349c-4643-aaf9-b8a529312da1 rr:objectMap km-dev:RefObjectMap_6fac27c4-1969-4de9-b6e7-92acecbcc204 .
+
+km-dev:TriplesMap_d10e9764-144e-4ce2-b840-1a6595d5708f rr:predicateObjectMap km-dev:PredicateObjectMap_beb44ab9-349c-4643-aaf9-b8a529312da1 .
+
+km-dev:PredicateObjectMap_beb44ab9-349c-4643-aaf9-b8a529312da1 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
+
+_:node1ags4uv0gx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_beb44ab9-349c-4643-aaf9-b8a529312da1 .
+
+km-dev:TriplesMap_d8845fa7-f6aa-4ef9-8ddf-57d76f692bc8 a rr:TriplesMap .
+
+_:node1ags4uv0gx1 km-dev:hasTriplesMap km-dev:TriplesMap_d8845fa7-f6aa-4ef9-8ddf-57d76f692bc8 .
+
+km-dev:TriplesMap_d8845fa7-f6aa-4ef9-8ddf-57d76f692bc8 km-dev:isPartOfMapping _:node1ags4uv0gx1 .
+
+_:node1ags4uv0gx4 rr:tableName "valid_organisation_assets.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
+
+_:node1ags4uv0gx1 km-dev:hasLogicalTable _:node1ags4uv0gx4 .
+
+km-dev:TriplesMap_d8845fa7-f6aa-4ef9-8ddf-57d76f692bc8 rr:logicalTable _:node1ags4uv0gx4 ;
+	rr:subjectMap _:node1ags4uv0gx5 .
+
+_:node1ags4uv0gx1 km-dev:hasSubjectMap _:node1ags4uv0gx5 .
+
+_:node1ags4uv0gx5 km-dev:isPartOfMapping _:node1ags4uv0gx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://openpermissions.org/ns/op/1.1/Asset1" ;
+	rr:class <http://openpermissions.org/ns/op/1.1/Asset> ;
 	rr:template "{entity_id}" .
 
-km-dev:PredicateObjectMap_017b5bcb-cd58-4e85-a27e-2b267cfeb341 rr:predicate <http://openlicensing.org/ns/ol/1.1/alsoIdentifiedBy> .
+km-dev:PredicateObjectMap_3f06546a-bd86-4f06-8a20-becda1f793fc rr:predicate dcterms:description .
 
-km-dev:RefObjectMap_0b87ef2d-4cc1-4636-bf24-d96abe4683ae a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
-
-_:node1aec68r36x1 km-dev:hasObjectMap km-dev:RefObjectMap_0b87ef2d-4cc1-4636-bf24-d96abe4683ae .
-
-km-dev:PredicateObjectMap_017b5bcb-cd58-4e85-a27e-2b267cfeb341 rr:objectMap km-dev:RefObjectMap_0b87ef2d-4cc1-4636-bf24-d96abe4683ae .
-
-km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 rr:predicateObjectMap km-dev:PredicateObjectMap_017b5bcb-cd58-4e85-a27e-2b267cfeb341 .
-
-km-dev:PredicateObjectMap_017b5bcb-cd58-4e85-a27e-2b267cfeb341 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
-
-_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_017b5bcb-cd58-4e85-a27e-2b267cfeb341 .
-
-km-dev:PredicateObjectMap_db71c867-5f8b-4108-bed2-6e780da90697 rr:predicate dcterms:description .
-
-_:node1aec68r36x4 rr:column "description" ;
+_:node1ags4uv0gx6 rr:column "description" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasObjectMap _:node1aec68r36x4 .
+_:node1ags4uv0gx1 km-dev:hasObjectMap _:node1ags4uv0gx6 .
 
-km-dev:PredicateObjectMap_db71c867-5f8b-4108-bed2-6e780da90697 rr:objectMap _:node1aec68r36x4 .
+km-dev:PredicateObjectMap_3f06546a-bd86-4f06-8a20-becda1f793fc rr:objectMap _:node1ags4uv0gx6 .
 
-km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 rr:predicateObjectMap km-dev:PredicateObjectMap_db71c867-5f8b-4108-bed2-6e780da90697 .
+km-dev:TriplesMap_d8845fa7-f6aa-4ef9-8ddf-57d76f692bc8 rr:predicateObjectMap km-dev:PredicateObjectMap_3f06546a-bd86-4f06-8a20-becda1f793fc .
 
-km-dev:PredicateObjectMap_db71c867-5f8b-4108-bed2-6e780da90697 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+km-dev:PredicateObjectMap_3f06546a-bd86-4f06-8a20-becda1f793fc a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_db71c867-5f8b-4108-bed2-6e780da90697 .
+_:node1ags4uv0gx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_3f06546a-bd86-4f06-8a20-becda1f793fc .
 
-km-dev:PredicateObjectMap_1fc63f3f-a9b2-4154-b1ea-59cfd2f8defd rr:predicate dcterms:modified .
+km-dev:PredicateObjectMap_52038c88-a4ba-4c26-83c8-876499cb4edd rr:predicate dcterms:modified .
 
-_:node1aec68r36x5 rr:column "ts" ;
+_:node1ags4uv0gx7 rr:column "ts" ;
 	a rr:ObjectMap ;
 	rr:datatype "http://www.w3.org/2001/XMLSchema#dateTime" ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasObjectMap _:node1aec68r36x5 .
+_:node1ags4uv0gx1 km-dev:hasObjectMap _:node1ags4uv0gx7 .
 
-km-dev:PredicateObjectMap_1fc63f3f-a9b2-4154-b1ea-59cfd2f8defd rr:objectMap _:node1aec68r36x5 .
+km-dev:PredicateObjectMap_52038c88-a4ba-4c26-83c8-876499cb4edd rr:objectMap _:node1ags4uv0gx7 .
 
-km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 rr:predicateObjectMap km-dev:PredicateObjectMap_1fc63f3f-a9b2-4154-b1ea-59cfd2f8defd .
+km-dev:TriplesMap_d8845fa7-f6aa-4ef9-8ddf-57d76f692bc8 rr:predicateObjectMap km-dev:PredicateObjectMap_52038c88-a4ba-4c26-83c8-876499cb4edd .
 
-km-dev:PredicateObjectMap_1fc63f3f-a9b2-4154-b1ea-59cfd2f8defd a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+km-dev:PredicateObjectMap_52038c88-a4ba-4c26-83c8-876499cb4edd a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1fc63f3f-a9b2-4154-b1ea-59cfd2f8defd .
+_:node1ags4uv0gx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_52038c88-a4ba-4c26-83c8-876499cb4edd .
 
-km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 a rr:TriplesMap .
+km-dev:PredicateObjectMap_2fbab4bc-de1c-4f86-8688-c9746f0b7743 rr:predicate <http://openpermissions.org/ns/op/1.1/alsoIdentifiedBy> .
 
-_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 .
+km-dev:RefObjectMap_de77d6a8-283d-483e-8fea-0f6f8d8877be a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_060d734a-65b7-4f4e-97c4-43fe0acb3ad0 ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 km-dev:isPartOfMapping _:node1aec68r36x1 .
+_:node1ags4uv0gx1 km-dev:hasObjectMap km-dev:RefObjectMap_de77d6a8-283d-483e-8fea-0f6f8d8877be .
 
-_:node1aec68r36x6 rr:tableName "valid_organisation_assets.csv" ;
+km-dev:PredicateObjectMap_2fbab4bc-de1c-4f86-8688-c9746f0b7743 rr:objectMap km-dev:RefObjectMap_de77d6a8-283d-483e-8fea-0f6f8d8877be .
+
+km-dev:TriplesMap_d8845fa7-f6aa-4ef9-8ddf-57d76f692bc8 rr:predicateObjectMap km-dev:PredicateObjectMap_2fbab4bc-de1c-4f86-8688-c9746f0b7743 .
+
+km-dev:PredicateObjectMap_2fbab4bc-de1c-4f86-8688-c9746f0b7743 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
+
+_:node1ags4uv0gx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2fbab4bc-de1c-4f86-8688-c9746f0b7743 .
+
+km-dev:TriplesMap_060d734a-65b7-4f4e-97c4-43fe0acb3ad0 a rr:TriplesMap .
+
+_:node1ags4uv0gx1 km-dev:hasTriplesMap km-dev:TriplesMap_060d734a-65b7-4f4e-97c4-43fe0acb3ad0 .
+
+km-dev:TriplesMap_060d734a-65b7-4f4e-97c4-43fe0acb3ad0 km-dev:isPartOfMapping _:node1ags4uv0gx1 .
+
+_:node1ags4uv0gx8 rr:tableName "valid_organisation_assets.csv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x6 .
+_:node1ags4uv0gx1 km-dev:hasLogicalTable _:node1ags4uv0gx8 .
 
-km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 rr:logicalTable _:node1aec68r36x6 ;
-	rr:subjectMap _:node1aec68r36x7 .
+km-dev:TriplesMap_060d734a-65b7-4f4e-97c4-43fe0acb3ad0 rr:logicalTable _:node1ags4uv0gx8 ;
+	rr:subjectMap _:node1ags4uv0gx9 .
 
-_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x7 .
+_:node1ags4uv0gx1 km-dev:hasSubjectMap _:node1ags4uv0gx9 .
 
-_:node1aec68r36x7 km-dev:isPartOfMapping _:node1aec68r36x1 ;
+_:node1ags4uv0gx9 km-dev:isPartOfMapping _:node1ags4uv0gx1 ;
 	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://openlicensing.org/ns/ol/1.1/Id1" ;
-	rr:class <http://openlicensing.org/ns/ol/1.1/Id> ;
+	km-dev:alignmentNodeId "http://openpermissions.org/ns/op/1.1/Id1" ;
+	rr:class <http://openpermissions.org/ns/op/1.1/Id> ;
 	rr:termType rr:BlankNode ;
 	km-dev:namePrefix "Id1" .
 
-km-dev:PredicateObjectMap_c7b32e29-93d4-49d7-9905-aa0f54ab2630 rr:predicate <http://openlicensing.org/ns/ol/1.1/id_type> .
+km-dev:PredicateObjectMap_11c29261-6c8c-4106-80ad-9c9ffa9ffb3e rr:predicate <http://openpermissions.org/ns/op/1.1/id_type> .
 
-km-dev:RefObjectMap_6e703aaf-8ac9-4808-b249-9a5db18c8b07 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_19f020a2-90cd-48e8-bf90-8fb53bd53a1c ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+km-dev:RefObjectMap_87985e39-25c4-447c-bc33-3ca0ab56e527 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_7151c1b5-c343-4ba6-8848-0b59b6813ccd ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasObjectMap km-dev:RefObjectMap_6e703aaf-8ac9-4808-b249-9a5db18c8b07 .
+_:node1ags4uv0gx1 km-dev:hasObjectMap km-dev:RefObjectMap_87985e39-25c4-447c-bc33-3ca0ab56e527 .
 
-km-dev:PredicateObjectMap_c7b32e29-93d4-49d7-9905-aa0f54ab2630 rr:objectMap km-dev:RefObjectMap_6e703aaf-8ac9-4808-b249-9a5db18c8b07 .
+km-dev:PredicateObjectMap_11c29261-6c8c-4106-80ad-9c9ffa9ffb3e rr:objectMap km-dev:RefObjectMap_87985e39-25c4-447c-bc33-3ca0ab56e527 .
 
-km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 rr:predicateObjectMap km-dev:PredicateObjectMap_c7b32e29-93d4-49d7-9905-aa0f54ab2630 .
+km-dev:TriplesMap_060d734a-65b7-4f4e-97c4-43fe0acb3ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_11c29261-6c8c-4106-80ad-9c9ffa9ffb3e .
 
-km-dev:PredicateObjectMap_c7b32e29-93d4-49d7-9905-aa0f54ab2630 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+km-dev:PredicateObjectMap_11c29261-6c8c-4106-80ad-9c9ffa9ffb3e a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c7b32e29-93d4-49d7-9905-aa0f54ab2630 .
+_:node1ags4uv0gx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_11c29261-6c8c-4106-80ad-9c9ffa9ffb3e .
 
-km-dev:PredicateObjectMap_153cc66f-dde1-468b-94c1-375a942651ce rr:predicate <http://openlicensing.org/ns/ol/1.1/value> .
+km-dev:PredicateObjectMap_e030ba2b-9f55-4fa0-b517-5f6ff41d5411 rr:predicate <http://openpermissions.org/ns/op/1.1/value> .
 
-_:node1aec68r36x8 rr:column "[\"alt_ids\",\"source_id\"]" ;
+_:node1ags4uv0gx10 rr:column "[\"alt_ids\",\"source_id\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasObjectMap _:node1aec68r36x8 .
+_:node1ags4uv0gx1 km-dev:hasObjectMap _:node1ags4uv0gx10 .
 
-km-dev:PredicateObjectMap_153cc66f-dde1-468b-94c1-375a942651ce rr:objectMap _:node1aec68r36x8 .
+km-dev:PredicateObjectMap_e030ba2b-9f55-4fa0-b517-5f6ff41d5411 rr:objectMap _:node1ags4uv0gx10 .
 
-km-dev:TriplesMap_8ad25877-9bd1-475d-a426-ff90b98f1458 rr:predicateObjectMap km-dev:PredicateObjectMap_153cc66f-dde1-468b-94c1-375a942651ce .
+km-dev:TriplesMap_060d734a-65b7-4f4e-97c4-43fe0acb3ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_e030ba2b-9f55-4fa0-b517-5f6ff41d5411 .
 
-km-dev:PredicateObjectMap_153cc66f-dde1-468b-94c1-375a942651ce a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+km-dev:PredicateObjectMap_e030ba2b-9f55-4fa0-b517-5f6ff41d5411 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_153cc66f-dde1-468b-94c1-375a942651ce .
+_:node1ags4uv0gx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e030ba2b-9f55-4fa0-b517-5f6ff41d5411 .
 
-km-dev:TriplesMap_84b93ad7-ec47-4b9e-ab98-a103eb34f669 a rr:TriplesMap .
+km-dev:TriplesMap_7151c1b5-c343-4ba6-8848-0b59b6813ccd a rr:TriplesMap .
 
-_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_84b93ad7-ec47-4b9e-ab98-a103eb34f669 .
+_:node1ags4uv0gx1 km-dev:hasTriplesMap km-dev:TriplesMap_7151c1b5-c343-4ba6-8848-0b59b6813ccd .
 
-km-dev:TriplesMap_84b93ad7-ec47-4b9e-ab98-a103eb34f669 km-dev:isPartOfMapping _:node1aec68r36x1 .
+km-dev:TriplesMap_7151c1b5-c343-4ba6-8848-0b59b6813ccd km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x9 rr:tableName "valid_organisation_assets.csv" ;
+_:node1ags4uv0gx11 rr:tableName "valid_organisation_assets.csv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x9 .
+_:node1ags4uv0gx1 km-dev:hasLogicalTable _:node1ags4uv0gx11 .
 
-km-dev:TriplesMap_84b93ad7-ec47-4b9e-ab98-a103eb34f669 rr:logicalTable _:node1aec68r36x9 ;
-	rr:subjectMap _:node1aec68r36x10 .
+km-dev:TriplesMap_7151c1b5-c343-4ba6-8848-0b59b6813ccd rr:logicalTable _:node1ags4uv0gx11 ;
+	rr:subjectMap _:node1ags4uv0gx12 .
 
-_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x10 .
+_:node1ags4uv0gx1 km-dev:hasSubjectMap _:node1ags4uv0gx12 .
 
-_:node1aec68r36x10 km-dev:isPartOfMapping _:node1aec68r36x1 ;
+_:node1ags4uv0gx12 km-dev:isPartOfMapping _:node1ags4uv0gx1 ;
 	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://openlicensing.org/ns/ol/1.1/AssetSet1" ;
-	rr:class <http://openlicensing.org/ns/ol/1.1/AssetSet> ;
+	km-dev:alignmentNodeId "http://openpermissions.org/ns/op/1.1/IdType1" ;
+	rr:class <http://openpermissions.org/ns/op/1.1/IdType> ;
+	rr:template "{[\"alt_ids\",\"source_id_type_uri\"]}" .
+
+km-dev:TriplesMap_7f519b6f-3205-4b08-85ae-5d1ff5eb441b a rr:TriplesMap .
+
+_:node1ags4uv0gx1 km-dev:hasTriplesMap km-dev:TriplesMap_7f519b6f-3205-4b08-85ae-5d1ff5eb441b .
+
+km-dev:TriplesMap_7f519b6f-3205-4b08-85ae-5d1ff5eb441b km-dev:isPartOfMapping _:node1ags4uv0gx1 .
+
+_:node1ags4uv0gx13 rr:tableName "valid_organisation_assets.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
+
+_:node1ags4uv0gx1 km-dev:hasLogicalTable _:node1ags4uv0gx13 .
+
+km-dev:TriplesMap_7f519b6f-3205-4b08-85ae-5d1ff5eb441b rr:logicalTable _:node1ags4uv0gx13 ;
+	rr:subjectMap _:node1ags4uv0gx14 .
+
+_:node1ags4uv0gx1 km-dev:hasSubjectMap _:node1ags4uv0gx14 .
+
+_:node1ags4uv0gx14 km-dev:isPartOfMapping _:node1ags4uv0gx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://openpermissions.org/ns/op/1.1/AssetSet1" ;
+	rr:class <http://openpermissions.org/ns/op/1.1/AssetSet> ;
 	rr:template "{[\"set_ids_split\",\"set_ids_fix\"]}" ;
 	a km-dev:steinerTreeRootNode .
 
-km-dev:PredicateObjectMap_b9138018-6468-4f65-b600-cf7994115ff3 rr:predicate <http://openlicensing.org/ns/ol/1.1/hasElement> .
+km-dev:PredicateObjectMap_29c3bdb9-1987-447e-b3be-052b1a3728d0 rr:predicate <http://openpermissions.org/ns/op/1.1/hasElement> .
 
-km-dev:RefObjectMap_5c02a07c-1770-455d-9454-69e7d7a7376e a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+km-dev:RefObjectMap_69f18b38-e96a-4403-8809-5a5e3910893e a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_d8845fa7-f6aa-4ef9-8ddf-57d76f692bc8 ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasObjectMap km-dev:RefObjectMap_5c02a07c-1770-455d-9454-69e7d7a7376e .
+_:node1ags4uv0gx1 km-dev:hasObjectMap km-dev:RefObjectMap_69f18b38-e96a-4403-8809-5a5e3910893e .
 
-km-dev:PredicateObjectMap_b9138018-6468-4f65-b600-cf7994115ff3 rr:objectMap km-dev:RefObjectMap_5c02a07c-1770-455d-9454-69e7d7a7376e .
+km-dev:PredicateObjectMap_29c3bdb9-1987-447e-b3be-052b1a3728d0 rr:objectMap km-dev:RefObjectMap_69f18b38-e96a-4403-8809-5a5e3910893e .
 
-km-dev:TriplesMap_84b93ad7-ec47-4b9e-ab98-a103eb34f669 rr:predicateObjectMap km-dev:PredicateObjectMap_b9138018-6468-4f65-b600-cf7994115ff3 .
+km-dev:TriplesMap_7f519b6f-3205-4b08-85ae-5d1ff5eb441b rr:predicateObjectMap km-dev:PredicateObjectMap_29c3bdb9-1987-447e-b3be-052b1a3728d0 .
 
-km-dev:PredicateObjectMap_b9138018-6468-4f65-b600-cf7994115ff3 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
+km-dev:PredicateObjectMap_29c3bdb9-1987-447e-b3be-052b1a3728d0 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ags4uv0gx1 .
 
-_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b9138018-6468-4f65-b600-cf7994115ff3 .
-
-km-dev:TriplesMap_19f020a2-90cd-48e8-bf90-8fb53bd53a1c a rr:TriplesMap .
-
-_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_19f020a2-90cd-48e8-bf90-8fb53bd53a1c .
-
-km-dev:TriplesMap_19f020a2-90cd-48e8-bf90-8fb53bd53a1c km-dev:isPartOfMapping _:node1aec68r36x1 .
-
-_:node1aec68r36x11 rr:tableName "valid_organisation_assets.csv" ;
-	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
-
-_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x11 .
-
-km-dev:TriplesMap_19f020a2-90cd-48e8-bf90-8fb53bd53a1c rr:logicalTable _:node1aec68r36x11 ;
-	rr:subjectMap _:node1aec68r36x12 .
-
-_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x12 .
-
-_:node1aec68r36x12 km-dev:isPartOfMapping _:node1aec68r36x1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://openlicensing.org/ns/ol/1.1/IdType1" ;
-	rr:class <http://openlicensing.org/ns/ol/1.1/IdType> ;
-	rr:template "{[\"alt_ids\",\"source_id_type_uri\"]}" .
-
-km-dev:TriplesMap_936adf1b-b45d-4e9e-a96a-19cc484b507a a rr:TriplesMap .
-
-_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_936adf1b-b45d-4e9e-a96a-19cc484b507a .
-
-km-dev:TriplesMap_936adf1b-b45d-4e9e-a96a-19cc484b507a km-dev:isPartOfMapping _:node1aec68r36x1 .
-
-_:node1aec68r36x13 rr:tableName "valid_organisation_assets.csv" ;
-	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
-
-_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x13 .
-
-km-dev:TriplesMap_936adf1b-b45d-4e9e-a96a-19cc484b507a rr:logicalTable _:node1aec68r36x13 ;
-	rr:subjectMap _:node1aec68r36x14 .
-
-_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x14 .
-
-_:node1aec68r36x14 km-dev:isPartOfMapping _:node1aec68r36x1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://openlicensing.org/ns/ol/1.1/Policy1" ;
-	rr:class <http://openlicensing.org/ns/ol/1.1/Policy> ;
-	rr:template "{[\"offers_ids_alt\",\"offer_ids_fix\"]}" .
-
-km-dev:PredicateObjectMap_ae016479-8b6a-4bfd-9c59-bc1b51c88008 rr:predicate <http://www.w3.org/ns/odrl/2/target> .
-
-km-dev:RefObjectMap_c1974a00-713f-4227-a92f-a4f5380d2fdc a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_431a572e-f731-458c-8eed-28900f39e9e5 ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
-
-_:node1aec68r36x1 km-dev:hasObjectMap km-dev:RefObjectMap_c1974a00-713f-4227-a92f-a4f5380d2fdc .
-
-km-dev:PredicateObjectMap_ae016479-8b6a-4bfd-9c59-bc1b51c88008 rr:objectMap km-dev:RefObjectMap_c1974a00-713f-4227-a92f-a4f5380d2fdc .
-
-km-dev:TriplesMap_936adf1b-b45d-4e9e-a96a-19cc484b507a rr:predicateObjectMap km-dev:PredicateObjectMap_ae016479-8b6a-4bfd-9c59-bc1b51c88008 .
-
-km-dev:PredicateObjectMap_ae016479-8b6a-4bfd-9c59-bc1b51c88008 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
-
-_:node1aec68r36x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ae016479-8b6a-4bfd-9c59-bc1b51c88008 .
-
-km-dev:TriplesMap_57df7e63-a73f-4ad9-b1e6-370f6dec8712 a rr:TriplesMap .
-
-_:node1aec68r36x1 km-dev:hasTriplesMap km-dev:TriplesMap_57df7e63-a73f-4ad9-b1e6-370f6dec8712 .
-
-km-dev:TriplesMap_57df7e63-a73f-4ad9-b1e6-370f6dec8712 km-dev:isPartOfMapping _:node1aec68r36x1 .
-
-_:node1aec68r36x15 rr:tableName "valid_organisation_assets.csv" ;
-	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1aec68r36x1 .
-
-_:node1aec68r36x1 km-dev:hasLogicalTable _:node1aec68r36x15 .
-
-km-dev:TriplesMap_57df7e63-a73f-4ad9-b1e6-370f6dec8712 rr:logicalTable _:node1aec68r36x15 ;
-	rr:subjectMap _:node1aec68r36x16 .
-
-_:node1aec68r36x1 km-dev:hasSubjectMap _:node1aec68r36x16 .
-
-_:node1aec68r36x16 km-dev:isPartOfMapping _:node1aec68r36x1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://www.w3.org/ns/odrl/2/Offer1" ;
-	rr:class <http://www.w3.org/ns/odrl/2/Offer> ;
-	rr:template "{entity_id}" .
+_:node1ags4uv0gx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_29c3bdb9-1987-447e-b3be-052b1a3728d0 .
