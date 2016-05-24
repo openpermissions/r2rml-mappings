@@ -1210,12 +1210,12 @@ _:node1adimjjgvx1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"value\": \"http://www.w3.org/ns/odrl/2/Offer\",
+                \"value\": \"http://openpermissions.org/ns/op/1.1/Asset\",
                 \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"value\": \"http://www.w3.org/ns/odrl/2/Offer1\",
+                \"value\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
                 \"type\": \"other\"
             },
             {
@@ -1223,9 +1223,9 @@ _:node1adimjjgvx1 a km-dev:R2RMLMapping ;
                 \"value\": [{
                     \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"http://www.w3.org/ns/odrl/2/Offer/Offer1 (add)\",
-                    \"DomainId\": \"http://www.w3.org/ns/odrl/2/Offer1\",
-                    \"DomainUri\": \"http://www.w3.org/ns/odrl/2/Offer\"
+                    \"DomainLabel\": \"http://openpermissions.org/ns/op/1.1/Asset/Asset1 (add)\",
+                    \"DomainId\": \"http://openpermissions.org/ns/op/1.1/Asset1\",
+                    \"DomainUri\": \"http://openpermissions.org/ns/op/1.1/Asset\"
                 }],
                 \"type\": \"other\"
             },
@@ -2016,6 +2016,6 @@ _:node1adimjjgvx1 km-dev:hasSubjectMap _:node1adimjjgvx16 .
 
 _:node1adimjjgvx16 km-dev:isPartOfMapping _:node1adimjjgvx1 ;
 	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://www.w3.org/ns/odrl/2/Offer1" ;
-	rr:class <http://www.w3.org/ns/odrl/2/Offer> ;
+	km-dev:alignmentNodeId "http://openpermissions.org/ns/op/1.1/Asset1" ;
+	rr:class <http://openpermissions.org/ns/op/1.1/Asset> ;
 	rr:template "http://openpermissions.org/ns/id/{uuid}" .
