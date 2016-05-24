@@ -1209,27 +1209,6 @@ _:node1adimjjgvx1 a km-dev:R2RMLMapping ;
                 \"type\": \"other\"
             },
             {
-                \"name\": \"metaPropertyUri\",
-                \"value\": \"http://www.w3.org/ns/odrl/2/Offer\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"metaPropertyId\",
-                \"value\": \"http://www.w3.org/ns/odrl/2/Offer1\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"SemanticTypesArray\",
-                \"value\": [{
-                    \"isPrimary\": true,
-                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"http://www.w3.org/ns/odrl/2/Offer/Offer1 (add)\",
-                    \"DomainId\": \"http://www.w3.org/ns/odrl/2/Offer1\",
-                    \"DomainUri\": \"http://www.w3.org/ns/odrl/2/Offer\"
-                }],
-                \"type\": \"other\"
-            },
-            {
                 \"name\": \"trainAndShowUpdates\",
                 \"value\": true,
                 \"type\": \"other\"
@@ -2013,9 +1992,3 @@ km-dev:TriplesMap_8d678c04-72a1-4dd8-a3fe-754fb7cb10a5 rr:logicalTable _:node1ad
 	rr:subjectMap _:node1adimjjgvx16 .
 
 _:node1adimjjgvx1 km-dev:hasSubjectMap _:node1adimjjgvx16 .
-
-_:node1adimjjgvx16 km-dev:isPartOfMapping _:node1adimjjgvx1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://www.w3.org/ns/odrl/2/Offer1" ;
-	rr:class <http://www.w3.org/ns/odrl/2/Offer> ;
-	rr:template "http://openpermissions.org/ns/id/{uuid}" .
