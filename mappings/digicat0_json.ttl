@@ -212,7 +212,7 @@ _:node1adimjjgvx1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"transformationCode\",
-                \"value\": \"import urllib\\nreturn \\\"http://openpermissions.org/ns/hub/\\\"+urllib.quote_plus(getValue(\\\"source_id_type\\\"))\",
+                \"value\": \"import urllib\\nreturn \\\"http://openpermissions.org/ns/hub/\\\"+urllib.quote_plus(getValue(\\\"source_id_type\\\").lower())\",
                 \"type\": \"other\"
             },
             {
