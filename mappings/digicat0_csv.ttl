@@ -50,7 +50,7 @@ _:node1ags4uv0gx1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"transformationCode\",
-                \"value\": \"import json\\nimport urllib\\nreturn json.dumps(map(lambda x:{'source_id_type_uri':\\\"http://openpermissions.org/ns/hub/\\\"+urllib.quote_plus(x[0].lower()),'source_id':urllib.quote_plus(x[1])},zip(getValue(\\\"source_id_types\\\").split(\\\"~\\\"),getValue(\\\"source_ids\\\").split(\\\"~\\\"))))\",
+                \"value\": \"import json\\nimport urllib\\nreturn json.dumps(map(lambda x:{'source_id_type_uri':\\\"http://openpermissions.org/ns/hub/\\\"+urllib.quote_plus(x[0]),'source_id':urllib.quote_plus(x[1])},zip(getValue(\\\"source_id_types\\\").split(\\\"~\\\"),getValue(\\\"source_ids\\\").split(\\\"~\\\"))))\",
                 \"type\": \"other\"
             },
             {
